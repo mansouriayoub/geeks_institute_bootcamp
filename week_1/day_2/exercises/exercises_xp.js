@@ -72,16 +72,159 @@ console.log(changeEnough(4.25, [25, 20, 5, 0]));
 
 // ===== Exercise 4
 
+// const hotelCost = () => {
+
+//     let userInput = prompt("How many nights are you staying at the hotel?");
+
+//     while (userInput === "" || userInput === null || isNaN(userInput)) {
+//         userInput = prompt("Please enter a valid number of nights");
+//     }
+//     let nights = Number(userInput);
+//     return nights * 140;
+// }
+
+// hotelCost();
+
+
+// const planeRideCost = () => {
+//     let userInput = prompt("Where are you hiding to?");
+
+//     while (userInput === "" || userInput === null) {
+
+//         userInput = prompt("Please enter a valid destination");
+
+//     }
+//         let destinationPlace = userInput;
+
+//         if (destinationPlace.toLowerCase() === "london") {
+//             return 183;
+//         } else if (destinationPlace.toLowerCase() === "paris") {
+//             return 220;
+//         } else {
+//             return 300;
+//         }
+
+
+// }
+
+// planeRideCost();
+
+// const rentalCarCost = () => {
+
+//     let userInput = prompt("How many days you are going to rent the car?");
+    
+//     while (userInput === "" || userInput === null || isNaN(userInput)) {
+//         userInput = prompt("Please enter a valid number of days");
+
+//     }
+//         let numberOfCarRentedDays = Number(userInput);
+
+//         let carRentCost = 40;
+//         let result = numberOfCarRentedDays * carRentCost;
+
+//         let fivePerCent = result * 0.05;
+
+        
+//         if(numberOfCarRentedDays >= 10) {
+//             return result - fivePerCent;
+//         }else{
+//             return result;
+//         }
+
+
+// }
+// rentalCarCost();
+
+
+// const totalVacationCost = () => {
+//     let hotelCostToSum = hotelCost(); 
+//     let planeCostToSum = planeRideCost(); 
+//     let rentalCarCostToSum = rentalCarCost() ;
+
+//     let resultTotalVacationCost =  hotelCostToSum + planeCostToSum + rentalCarCostToSum;
+
+//     console.log(`The car cost: $${rentalCarCostToSum}, the hotel cost: $${hotelCostToSum}, the plane tickets cost: $${planeCostToSum}`)
+    
+//     return resultTotalVacationCost;
+// }
+
+// totalVacationCost();
+
+// Bonus: Instead of using a prompt inside the 3 first functions, only use a prompt inside the totalVacationCost() function. 
+// You need to change the 3 first functions, accordingly.
+
 const hotelCost = (numberOfNights) => {
+    return numberOfNights * 140;
+}
+const planeRideCost = (destinationPlace) => {
 
-    let userInput = prompt("How many nights are you staying at the hotel?");
+        if (destinationPlace.toLowerCase() === "london") {
+            return 183;
+        } else if (destinationPlace.toLowerCase() === "paris") {
+            return 220;
+        } else {
+            return 300;
+        }
 
-    let answer = userInput * 140;
+}
+function rentalCarCost(numberOfCarRentedDays) {
+        
+        let carRentCost = 40;
+        let result = numberOfCarRentedDays * carRentCost;
 
-    if () {
+        let fivePerCent = result * 0.05;
 
-    }
+        
+        if(numberOfCarRentedDays >= 10) {
+            return result - fivePerCent;
+        }else{
+            return result;
+        }
 
 }
 
-// ===== Exercise ...
+const totalVacationCost = () => {
+
+    //prompt of nights number
+    let numberOfNightsPrompt = prompt("How many nights you are going to stay in the hotel?");
+
+    while(numberOfNightsPrompt === null || numberOfNightsPrompt === "" || isNaN(numberOfNightsPrompt) ) {
+        numberOfNightsPrompt = prompt("Please enter a valid number of nights?")
+    }
+
+    numberOfNightsPrompt = Number(numberOfNightsPrompt);
+
+    //prompt of destination
+    let destinationPlacePrompt = prompt("Where are you hiding to?");
+
+    while (destinationPlacePrompt === "" || destinationPlacePrompt === null) {
+
+        destinationPlacePrompt = prompt("Please enter a valid destination");
+
+    }
+
+    //prompt of car renting number
+    let carRentedDaysPrompt = prompt("How many days you want the car?");
+
+    while (carRentedDaysPrompt === "" || carRentedDaysPrompt === null || isNaN(carRentedDaysPrompt)) {
+
+        carRentedDaysPrompt = prompt("Please enter a valid number of days");
+
+    }
+    carRentedDaysPrompt = Number(carRentedDaysPrompt);
+
+    //prompt of total vacation cost
+    let hotelCostToSum = hotelCost(numberOfNightsPrompt); 
+    let planeCostToSum = planeRideCost(destinationPlacePrompt); 
+    let rentalCarCostToSum = rentalCarCost(carRentedDaysPrompt);
+
+    let resultTotalVacationCost =  hotelCostToSum + planeCostToSum + rentalCarCostToSum;
+
+    console.log(`The car cost: $${rentalCarCostToSum}, the hotel cost: $${hotelCostToSum}, the plane tickets cost: $${planeCostToSum}`)
+    
+    return resultTotalVacationCost;    
+
+
+} 
+
+totalVacationCost();
