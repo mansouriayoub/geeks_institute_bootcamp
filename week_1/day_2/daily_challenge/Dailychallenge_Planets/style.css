@@ -19,3 +19,48 @@ body {
     background: rgb(237, 237, 237);
     border: 5px solid red;
 }
+.listPlanets{
+    display: grid;
+    grid-template-columns: repeat(7, 116px);
+    gap: 10px;
+}
+
+.mercury {
+    background-color: #2D393A;
+}
+
+.venus {
+    background-color: #FFC74A;
+}
+
+.earth {
+    background-color: #1E90FF;
+}
+
+.mars {
+    background-color: #DB2520;
+}
+
+.jupiter {
+    background-color: #D68A2E;
+}
+
+.saturn {
+    background-color: #EEDC82;
+}
+
+.uranus {
+    background-color: #49636B;
+}
+
+.neptune {
+    background-color: #1C2851;
+}
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
