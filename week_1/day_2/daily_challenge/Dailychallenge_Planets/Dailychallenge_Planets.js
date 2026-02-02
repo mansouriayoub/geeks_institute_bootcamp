@@ -65,6 +65,10 @@ for (const planet of planetsArrayOfObjects) {
         const moonDiv = document.createElement("div");
         moonDiv.classList.add("moon");
         divPlanet.appendChild(moonDiv);
+        
+            moonDiv.style.left = i * 20+"px";
+            
+        
     }
 
 }
