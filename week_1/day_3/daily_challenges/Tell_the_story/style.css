@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    font-family: Arial, sans-serif;
+    background-color: #f3f4f6;
+}
+
+#madlib-wrapper {
+    background-color: #fff;
+    padding: 2rem 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0.12);
+    display: grid;
+    gap: 1.25rem;
+    max-width: 420px;
+    width: 100%;
+}
+
+#madlib-wrapper h1 {
+    margin: 0;
+    text-align: center;
+}
+
+#libform {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+}
+
+#libform label {
+    display: block;
+    margin-top: 0.25rem;
+}
+
+#libform input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 0.35rem 0.5rem;
+}
+
+#libform button {
+    margin-top: 0.75rem;
+    justify-self: center;
+    padding: 0.5rem 1.25rem;
+    cursor: pointer;
+}
+
+#story {
+    font-weight: 500;
+}
+
+#shuffle {
+    padding: 0.45rem 1.1rem;
+    cursor: pointer;
+    align-self: center;
+    justify-self: center;
+}
