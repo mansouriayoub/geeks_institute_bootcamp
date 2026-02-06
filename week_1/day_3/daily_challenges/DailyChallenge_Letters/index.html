@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>Challenge - Letters</title>
+</head>
+<body>
+    
+    <input
+        type="text" id="lettersOnly" title="Letters only" placeholder="Letters only"
+    />
+    
+    <script>
+        const inputKey = document.getElementById('lettersOnly');
+
+        inputKey.addEventListener("input", function () {
+            this.value = this.value.replace(/[^a-zA-Z ]/g, "");
+        });
+    </script>
+</body>
+</html>
