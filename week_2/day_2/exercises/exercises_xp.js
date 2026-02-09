@@ -1,15 +1,5 @@
 /**
  * 🌟 Exercise 1 : Colors
-
-Instructions
-
-Using this array :
-
-
-Write a JavaScript program that displays the colors in the following order : “1# choice is Blue.” “2# choice is Green.” “3# choice is Red.” ect…
-
-Check if at least one element of the array is equal to the value “Violet”. If yes, console.log("Yeah"), else console.log("No...")
-Hint : Use the array methods taught in class. Look at the lesson Array Methods.
 */
 const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
 colors.forEach((color,i)=>{
@@ -21,3 +11,30 @@ colors.forEach((color,i)=>{
         console.log("No...");
     }
 })
+
+
+/**
+ * 🌟 Exercise 2 : Colors #2
+*/
+const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const ordinal = ["th","st","nd","rd"];
+
+colors.map((color, i) => {
+    // let ordinalIndex = (i==0) ? 1 : (i === 1) ? 2 : (i === 2) ? 3 : 0
+    let ordinalIndex = (i <= 2) ? i+1 : 0;
+    console.log(`${i+1}${ordinal[ordinalIndex]} choice is ${color}`)
+});
+
+// colors.map((color, i)=> {
+    
+//     if (i === 0) {
+//         console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
+//     }else if (i === 1) {
+//         console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
+//     }else if (i === 2) {
+//         console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
+//     }else if (i > 2){
+//         console.log(`${i+1}${ordinal[0]} choice is ${color}`)
+//     }
+
+// });
