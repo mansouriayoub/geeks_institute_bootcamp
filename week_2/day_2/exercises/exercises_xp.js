@@ -25,16 +25,36 @@ colors.map((color, i) => {
     console.log(`${i+1}${ordinal[ordinalIndex]} choice is ${color}`)
 });
 
-// colors.map((color, i)=> {
-    
-//     if (i === 0) {
-//         console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
-//     }else if (i === 1) {
-//         console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
-//     }else if (i === 2) {
-//         console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
-//     }else if (i > 2){
-//         console.log(`${i+1}${ordinal[0]} choice is ${color}`)
-//     }
+/*colors.map((color, i)=> {
+    if (i === 0) {
+        console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
+    }else if (i === 1) {
+        console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
+    }else if (i === 2) {
+        console.log(`${i+1}${ordinal[i+1]} choice is ${color}`)
+    }else if (i > 2){
+        console.log(`${i+1}${ordinal[0]} choice is ${color}`)
+    }
 
-// });
+});*/
+
+/**
+ * Exercise 3 : Analyzing
+ */
+// ------1------
+const fruits = ["apple", "orange"];
+const vegetables = ["carrot", "potato"];
+
+const result = ['bread', ...vegetables, 'chicken', ...fruits];
+console.log(result);
+//['bread', "carrot", "potato", 'chicken', "apple", "orange"]
+
+// ------2------
+const country = "USA";
+console.log([...country]);
+//['U','S','A'] spread operator splits string into chars and puts them in an array
+
+// ------Bonus------
+let newArray = [...[,,]];
+console.log(newArray);
+//[undefined,undefined] [,,] creates an array with empty slots
