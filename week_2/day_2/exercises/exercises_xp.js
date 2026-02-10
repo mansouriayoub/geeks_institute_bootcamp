@@ -16,10 +16,10 @@ colors.forEach((color,i)=>{
 /**
  * 🌟 Exercise 2 : Colors #2
 */
-const colors = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
+const colors2 = ["Blue", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow"];
 const ordinal = ["th","st","nd","rd"];
 
-colors.map((color, i) => {
+colors2.map((color, i) => {
     // let ordinalIndex = (i==0) ? 1 : (i === 1) ? 2 : (i === 2) ? 3 : 0
     let ordinalIndex = (i <= 2) ? i+1 : 0;
     console.log(`${i+1}${ordinal[ordinalIndex]} choice is ${color}`)
@@ -91,6 +91,7 @@ const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
 epic.reduce((acc, str)=>{
     return `${acc} ${str}`
 })
+//output: 'a long time ago in a galaxy far far away'
 
 /**
  * 🌟 Exercise 6 : Employees #2
