@@ -82,3 +82,31 @@ const newArrFilter = users.filter(user=>user.role === 'Full Stack Resident')
 
 
 users.filter(user=>user.role === 'Full Stack Resident').map(user=>user.lastName)
+
+/*
+*🌟 Exercise 5 : Star Wars
+*/
+
+const epic = ['a', 'long', 'time', 'ago', 'in a', 'galaxy', 'far far', 'away'];
+epic.reduce((acc, str)=>{
+    return `${acc} ${str}`
+})
+
+/**
+ * 🌟 Exercise 6 : Employees #2
+ */
+const students = [
+    {name: "Ray", course: "Computer Science", isPassed: true}, 
+    {name: "Liam", course: "Computer Science", isPassed: false}, 
+    {name: "Jenner", course: "Information Technology", isPassed: true}, 
+    {name: "Marco", course: "Robotics", isPassed: true}, 
+    {name: "Kimberly", course: "Artificial Intelligence", isPassed: false}, 
+    {name: "Jamie", course: "Big Data", isPassed: false}
+];
+
+const newArrFilter2 = students.filter(student=>student.isPassed == true);
+
+//Bonus
+const newArrFilter3 = students.filter(student=>student.isPassed == true).forEach(student=>{
+    console.log(`Good job ${student.name}, you passed the course in ${student.course}`);
+});
