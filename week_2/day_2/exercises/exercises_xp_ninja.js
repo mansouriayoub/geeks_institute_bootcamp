@@ -33,7 +33,6 @@ const data = [
 ];
 /**
  * Use a loop to find the sum of the dogs’ ages in human years.
-Hint: 1 dog year equals 7 human years
 */
 
 let sum = 0;
@@ -48,8 +47,8 @@ for (let i = 0; i < data.length; i++) {
 console.log(sum);
 
 /*
-Using the reduce() method, find the sum of the dogs’ ages in human years.
- */
+ *Using the reduce() method, find the sum of the dogs’ ages in human years.
+*/
 
 data.reduce((acc,val)=>{
   if (val.type === 'dog') {
@@ -58,15 +57,16 @@ data.reduce((acc,val)=>{
   return acc
 }, 0)
 
+
+
 /**
  * Exercise 2 : Email
-
-    Instructions
-
-    Clean up this email to have no whitespaces. Do it in a single line (return a new string).
-    */
+*/
 const userEmail3 = ' cannotfillemailformcorrectly@gmail.com '
 userEmail3.trim();
+
+
+
 
 /*Exercise 3 : Employees #3 */
 const users = [
@@ -78,12 +78,8 @@ const users = [
   { firstName: 'Wes', lastName: 'Reid', role: 'Instructor'},
   { firstName: 'Zach', lastName: 'Klabunde', role: 'Instructor'}
 ];
-/*
-  Change the structure of the users array. 
-  The user’s full name should be the key and the user’s role should be the value.
-  Example: { 'Bradley Bouley': 'Full Stack Resident' }
-  Hint: Step one, create an empty object. 
-*/
+
+
 const usersObj = {};
 
 users.forEach((user)=>{
@@ -95,16 +91,12 @@ users.forEach((user)=>{
 
 console.log(usersObj)
 
+
+
+
+
 /**
  * Exercise 4 : Array to Object
-
-  Instructions
-
-  Using this array const letters = ['x', 'y', 'z', 'z'];
-
-  Use a for loop to get this output { x: 1, y: 1, z: 2 };
-
-  Use the reduce() method to get this output { x: 1, y: 1, z: 2 };
  */
 
   const letters = ['x', 'y', 'z', 'z'];
