@@ -84,9 +84,57 @@ const users = [
   Example: { 'Bradley Bouley': 'Full Stack Resident' }
   Hint: Step one, create an empty object. 
 */
-const usersObj = [{}];
+const usersObj = {};
 
-users.  ((user)=>{
-  let fullName = `${user.firstName} ${user.lastName}`
-  return usersObj[fullName];
+users.forEach((user)=>{
+  let fullName = `${user.firstName} ${user.lastName}`;
+
+  usersObj[fullName] = user.role;
+
 })
+
+console.log(usersObj)
+
+/**
+ * Exercise 4 : Array to Object
+
+  Instructions
+
+  Using this array const letters = ['x', 'y', 'z', 'z'];
+
+  Use a for loop to get this output { x: 1, y: 1, z: 2 };
+
+  Use the reduce() method to get this output { x: 1, y: 1, z: 2 };
+ */
+
+  const letters = ['x', 'y', 'z', 'z'];
+
+  let obj = {};
+
+  for (let i = 0; i < letters.length; i++) {
+    const element = letters[i];
+
+    if (obj[element]) {
+      obj[element]++
+    }else{
+      obj[element] = 1;
+    }
+
+  }
+    
+  console.log(obj);
+
+  const result = letters.reduce((acc,val)=>{
+
+    if (acc[val]) {
+      acc[val]++
+    }else{
+      acc[val] = 1;
+    }
+
+    return acc;
+
+  }, {})
+
+  console.log(result);
+  
