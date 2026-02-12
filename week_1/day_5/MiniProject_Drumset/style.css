@@ -1,0 +1,79 @@
+/* ===== Reset ===== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: url("concert.jpg") center center / cover no-repeat;
+    position: relative;
+}
+
+/* Dark overlay */
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.85),
+        rgba(0,0,0,0.55),
+        rgba(0,0,0,0.85)
+    );
+    z-index: 0;
+}
+
+/* Container */
+.container {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+/* Drum Buttons */
+button {
+    width: 30px;
+    height: 30px;
+    background: rgba(0, 0, 0, 0.85);
+    border: 3px solid #ffcc00;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.2s ease;
+    outline: none;
+}
+
+/* Keyboard Letter */
+kbd {
+    font-size: 10px;
+    font-weight: 60;
+    color: #ffffff;
+}
+
+/* Neon Glow (Active State) */
+button.active {
+    box-shadow:
+        0 0 15px #ffcc00,
+        0 0 30px #ffcc00,
+        0 0 60px rgba(255, 204, 0, 0.8);
+    transform: scale(1.05);
+}
+
+/* Hover Effect */
+button:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 20px #ffcc00,
+        0 0 40px #ffcc00,
+        0 0 80px rgba(255, 204, 0, 0.9);
+}
