@@ -62,8 +62,7 @@ data.reduce((acc,val)=>{
 /**
  * Exercise 2 : Email
 */
-const userEmail3 = ' cannotfillemailformcorrectly@gmail.com '
-userEmail3.trim();
+const userEmail3 = ' cannotfillemailformcorrectly@gmail.com '.trim();
 
 
 
