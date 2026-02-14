@@ -25,8 +25,8 @@ class Video {
  * Instantiate a new Video instance and call the watch() method.
  * Instantiate a second Video instance with different values.
 */
-const vidInst = new Video('Dark', 'Net', 'half hour');
-const vidInstTwo = new Video('White', 'Gol', 'Thirty minutes');
+const vidInst = new Video('Dark', 'Ali', 300);
+const vidInstTwo = new Video('White', 'Kamal', 200);
 
 /**
  * Bonus: Use an array to store data for five Video instances (ie. title, uploader, time)
@@ -36,27 +36,27 @@ const vidInstTwo = new Video('White', 'Gol', 'Thirty minutes');
 const data = [
     {
         title: "First Video",
-        uploader: "Alice",
+        uploader: "Siham",
         time: 120
     },
     {
         title: "Second Adventure",
-        uploader: "Bob",
+        uploader: "Bilal",
         time: 300
     },
     {
         title: "Cooking Fun",
-        uploader: "Carol",
+        uploader: "Samia",
         time: 600
     },
     {
         title: "Travel Diaries",
-        uploader: "David",
+        uploader: "Osama",
         time: 450
     },
     {
         title: "Game Highlights",
-        uploader: "Eve",
+        uploader: "Ibra",
         time: 200
     },
 ]
