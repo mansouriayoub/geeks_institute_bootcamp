@@ -6,7 +6,7 @@ const nameVal = form.querySelector('input[type="text"]').value;
 const message = form.querySelector('textarea').value;
 const submitBtn = form.querySelector('input[type="submit"]');
 
-submitBtn.addEventListener('submit')*/
+form.addEventListener('submit')*/
 
 
 
