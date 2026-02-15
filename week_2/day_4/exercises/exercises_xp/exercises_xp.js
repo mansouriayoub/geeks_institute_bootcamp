@@ -1,26 +1,32 @@
 /**
- * 🌟 Exercise 1 : HTML Form
+ * Exercise 1 : HTML Form
  */
-const form = document.querySelector('form');
+/*const form = document.querySelector('form');
 const nameVal = form.querySelector('input[type="text"]').value;
 const message = form.querySelector('textarea').value;
 const submitBtn = form.querySelector('input[type="submit"]');
 
-submitBtn.addEventListener('submit')
+submitBtn.addEventListener('submit')*/
 
-// data appear at url as query param
+
+
+//🌟 => data appear at url as query param
+
+
 
 
 /**
- * 🌟 Exercise 2 : HTML Form #2
+ * Exercise 2 : HTML Form #2
  */
 
-//with post method, the data appears in Network Tab => Payload
+//🌟 => with post method, the data appears in Network Tab => Payload
+
+
 
 
 
 /**
- * 🌟 Exercise 3 : JSON Mario
+ * Exercise 3 : JSON Mario
  */
 
 const marioGame = {
