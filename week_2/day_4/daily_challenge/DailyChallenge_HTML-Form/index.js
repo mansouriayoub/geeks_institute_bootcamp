@@ -4,16 +4,30 @@
  */
 
 const form = document.querySelector('form');
-const nameVal = form.querySelector('input[type="text"]');
-const lastNameVal = form.querySelector('textarea');
+const nameInput = form.querySelector('#name');
+const lastName = form.querySelector('#lastname');
 const submitBtn = form.querySelector('input[type="submit"]');
 
 const card = document.querySelector('.form-card')
 
-form.addEventListener('submit',()=>{
-    const p = document.createElement('p');
-    card.appendChild(p);
+form.addEventListener('submit',(e)=>{
+    e.preventDefault();
 
-    p.textContent = nameVal.value;
+    const nameVal = nameInput.value;
+    const lastNameVal = lastName.value;
+
+    let obj = {
+        name: nameVal,
+        lastname: lastNameVal
+    };
+
+    const para = JSON.stringify(obj);
+
+    const p = document.createElement('p');
+    p.textContent = para;
+    
+    card.appendChild(p);
+    
+    form.reset();
 })
 
