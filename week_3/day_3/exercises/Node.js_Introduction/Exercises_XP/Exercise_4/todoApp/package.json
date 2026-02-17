@@ -1,0 +1,13 @@
+{
+  "name": "todoapp",
+  "version": "1.0.0",
+  "description": "TodoList exercise 4 from exercises XP, day 3 in week 3",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
