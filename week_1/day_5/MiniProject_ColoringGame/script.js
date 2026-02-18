@@ -9,7 +9,7 @@ const listOfColors = [
 ];
 
 // sidebar
-const sidebar = document.getElementById("sidebar");
+const sidebar = document.getElemeyntById("sidebar");
 for (const bg of listOfColors) {
 	const div = document.createElement("div");
 	div.style.backgroundColor = bg;
