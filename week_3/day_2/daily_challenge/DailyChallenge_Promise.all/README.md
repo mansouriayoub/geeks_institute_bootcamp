@@ -20,7 +20,8 @@ You will find the hour of sunrise of two cities, using the API https://sunrise-s
     -the latitude and longitude of the first city
     -the latitude and longitude of the second city
 
-2.Retrieve the input’s value and display the hour of the sunrise for both city ONLY ###when both promises are resolved
+2.Retrieve the input’s value and display the hour of the sunrise for both city ONLY ###when both promises are resolved###
+
     Hint : Use Promise.all()
 
 Try with Paris and New York
