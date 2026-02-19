@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTTP & Forms - Exercise XP Gold</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            padding: 40px;
+        }
+
+        section {
+            background: #ffffff;
+            padding: 15px 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+            width: 300px;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+    </style>
+</head>
+
+<body>
+    <section></section>
+
+    <script>
+        const section = document.querySelector('section')
+        const data = localStorage.getItem('myData');
+
+        const result = JSON.parse(data);
+
+        const ul = document.createElement('ul');
+
+        for (const key in result) {
+
+            const li = document.createElement('li')
+
+            li.innerText = `${key} : ${result[key]}`;
+
+            section.appendChild(ul)
+            ul.appendChild(li)
+        }
+
+    </script>
+</body>
+
+</html>
