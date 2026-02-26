@@ -1,4 +1,4 @@
-export const emojis = [
+const emojis = [
     { emoji: '😀', name: 'Smile' },
     { emoji: '🐶', name: 'Dog' },
     { emoji: '🌮', name: 'Taco' },
@@ -20,3 +20,4 @@ export const emojis = [
     { emoji: '🎲', name: 'Dice' },
     { emoji: '📚', name: 'Books' }
 ];
+export default emojis

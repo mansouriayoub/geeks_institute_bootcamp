@@ -1,11 +1,160 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Emoji Guessing Game</title>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <h1>Welcome to the Emoji Classroom 🎓</h1>
+    <h1>Emoji Guessing Game 🎮</h1>
+
+    <div class="game-container" id="game-section">
+        <div id="score-display">Score: 0</div>
+        <div id="emoji-display">❓</div>
+        <form id="guess-form">
+            <div id="options-container" class="options-grid">
+                <!-- Options will be injected here -->
+            </div>
+        </form>
+        <div id="feedback"></div>
+        <button id="next-btn" class="hidden"
+            style="margin-top: 20px; width: 100%; background: #28a745; color: white; border: none; padding: 12px; border-radius: 8px;">Next
+            Question</button>
+        <button id="end-btn"
+            style="margin-top: 10px; width: 100%; background: #dc3545; color: white; border: none; padding: 12px; border-radius: 8px;">End
+            Game & Submit Score</button>
+    </div>
+
+    <div id="submit-section" class="hidden game-container">
+        <h2>Game Over!</h2>
+        <p id="final-score"></p>
+        <input type="text" id="player-name" placeholder="Enter your name"
+            style="padding: 10px; width: 80%; margin-bottom: 10px;">
+        <button id="submit-score-btn"
+            style="width: 100%; background: #007bff; color: white; border: none; padding: 12px; border-radius: 8px;">Submit
+            to Leaderboard</button>
+    </div>
+
+    <div class="leaderboard-container">
+        <h2>Leaderboard 🏆</h2>
+        <table id="leaderboard-table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Score</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Leaderboard data will be injected here -->
+            </tbody>
+        </table>
+    </div>
+
+    <script>
+        let currentScore = 0;
+
+        async function fetchQuestion() {
+            try {
+                const response = await fetch('/api/question');
+                const data = await response.json();
+
+                document.getElementById('emoji-display').innerText = data.emoji;
+                const optionsContainer = document.getElementById('options-container');
+                optionsContainer.innerHTML = '';
+
+                data.options.forEach(option => {
+                    const btn = document.createElement('button');
+                    btn.type = 'button';
+                    btn.innerText = option;
+                    btn.onclick = () => submitGuess(option);
+                    optionsContainer.appendChild(btn);
+                });
+
+                document.getElementById('feedback').innerText = '';
+                document.getElementById('next-btn').classList.add('hidden');
+            } catch (error) {
+                console.error('Error fetching question:', error);
+            }
+        }
+
+        async function submitGuess(guess) {
+            try {
+                const response = await fetch('/api/guess', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ playerGuess: guess })
+                });
+                const data = await response.json();
+
+                document.getElementById('feedback').innerText = data.feedback;
+                document.getElementById('score-display').innerText = `Score: ${data.score}`;
+                currentScore = data.score;
+
+                // Disable all option buttons
+                const buttons = document.querySelectorAll('#options-container button');
+                buttons.forEach(btn => btn.disabled = true);
+
+                document.getElementById('next-btn').classList.remove('hidden');
+            } catch (error) {
+                console.error('Error submitting guess:', error);
+            }
+        }
+
+        async function fetchLeaderboard() {
+            try {
+                const response = await fetch('/api/leaderboard');
+                const data = await response.json();
+                const tbody = document.querySelector('#leaderboard-table tbody');
+                tbody.innerHTML = '';
+
+                data.forEach(entry => {
+                    const row = `<tr><td>${entry.name}</td><td>${entry.score}</td></tr>`;
+                    tbody.innerHTML += row;
+                });
+            } catch (error) {
+                console.error('Error fetching leaderboard:', error);
+            }
+        }
+
+        document.getElementById('next-btn').onclick = fetchQuestion;
+
+        document.getElementById('end-btn').onclick = () => {
+            document.getElementById('game-section').classList.add('hidden');
+            document.getElementById('submit-section').classList.remove('hidden');
+            document.getElementById('final-score').innerText = `Your Final Score: ${currentScore}`;
+        };
+
+        document.getElementById('submit-score-btn').onclick = async () => {
+            const name = document.getElementById('player-name').value;
+            if (!name) return alert('Please enter your name!');
+
+            try {
+                const response = await fetch('/api/leaderboard', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name })
+                });
+
+                if (response.ok) {
+                    document.getElementById('submit-section').classList.add('hidden');
+                    document.getElementById('game-section').classList.remove('hidden');
+                    currentScore = 0;
+                    document.getElementById('score-display').innerText = `Score: 0`;
+                    fetchQuestion();
+                    fetchLeaderboard();
+                }
+            } catch (error) {
+                console.error('Error submitting score:', error);
+            }
+        };
+
+        // Initial Load
+        fetchQuestion();
+        fetchLeaderboard();
+    </script>
 </body>
+
 </html>
