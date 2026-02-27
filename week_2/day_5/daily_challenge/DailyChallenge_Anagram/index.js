@@ -16,13 +16,14 @@
  * Do we need to consider whitespace?
  * Trim whitespace prior to comparison.
  */
+const normalize = (str)=>str.toLowerCase().replace(/ /g,'').split('').sort().join('');
 
 const anagramChecker = (str1,str2)=>{
 
-    const var1 = str1.toLowerCase().replace(/ /g,'').split('').sort().join('');
-    const var2 = str2.toLowerCase().replace(/ /g,'').split('').sort().join('');
+    // const var1 = str1.toLowerCase().replace(/ /g,'').split('').sort().join('');
+    // const var2 = str2.toLowerCase().replace(/ /g,'').split('').sort().join('');
 
-    return (var1 === var2)
+    return (normalize(str1) === normalize(str2))
 }
 
 anagramChecker('The classroom','School master')   // true
