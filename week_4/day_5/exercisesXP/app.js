@@ -44,3 +44,19 @@ const testStudent = async () => {
 };
 
 console.log(testStudent()); //Validation Error Caught: Student validation failed: age: must be at least 18
+
+const newStudent = async()=>{
+  try {
+
+    const student = new Student({
+      name: 'Alaa',
+      email: 'alaa@mail.com',
+      age: 19
+    });
+    await student.save();
+  } catch (error) {
+    console.error("Validation Error Caught:", error.message);
+  }
+}
+
+console.log(newStudent());
