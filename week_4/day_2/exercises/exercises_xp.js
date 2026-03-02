@@ -1,5 +1,5 @@
 // Exercise 1: The "Profile" Design (Embedding)
-use PersonalData //db name
+// use PersonalData //db name
 
 db.users.insertOne({
     name: "Yasmine",
