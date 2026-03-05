@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gif Search - Daily Challenge</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Gif Explorer</h1>
+            <p>Find random GIFs for any category!</p>
+        </header>
+
+        <section class="search-section">
+            <form id="gif-form">
+                <div class="input-group">
+                    <input type="text" id="category-input" placeholder="Enter a category (e.g. funny, sun, cat)" required>
+                    <button type="submit" id="fetch-btn">Fetch GIF</button>
+                </div>
+            </form>
+            <button id="delete-all-btn" class="secondary-btn">Delete All GIFs</button>
+        </section>
+
+        <main id="gif-container" class="gif-grid">
+            <!-- GIFs will be appended here -->
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
