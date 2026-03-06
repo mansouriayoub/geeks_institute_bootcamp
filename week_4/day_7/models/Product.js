@@ -9,11 +9,12 @@ const productSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User',
         required: true
-    }
+    },
+    category: { type: String, required: true }
 }, { timestamps: true })
 
 // High-speed search for products within a category sorted by price
 productSchema.index({ category: 1, price: -1 });
 
-
-export default Product = mongoose.model('Product', productSchema);
+const Product = mongoose.model('Product', productSchema);
+export default Product;

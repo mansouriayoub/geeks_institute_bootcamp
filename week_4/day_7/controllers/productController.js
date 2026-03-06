@@ -10,4 +10,14 @@ const vendorProducts = async (req, res) => {
     }
 }
 
-export default vendorProducts;
+const createProduct = async (req, res) => {
+    try {
+        const { title, price, description, stock, category, owner } = req.body;
+        const product = await Product.create({ title, price, description, stock, category, owner });
+        res.status(201).json(product);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+}
+
+export default { vendorProducts, createProduct };
