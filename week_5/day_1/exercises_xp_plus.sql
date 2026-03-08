@@ -78,3 +78,20 @@ select * from students where student_id in (1,3);
 select * from students where birth_date >= '1/01/2000';
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
