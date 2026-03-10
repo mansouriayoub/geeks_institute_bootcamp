@@ -77,10 +77,7 @@ values (1, 1, 'Great Movie', 9, 'Very interesting story and great acting.', CURR
 what happens to the customer_review table?*/
 delete from new_film where id = 1
 
-
-
 --🌟 Exercise 2 : DVD Rental
-
 --1-Use UPDATE to change the language of some films. Make sure that you use valid languages.
 SELECT language_id, name
 FROM language;
@@ -93,10 +90,6 @@ SELECT title, language_id FROM film WHERE title IN ('ACADEMY DINOSAUR', 'ACE GOL
 2-Which foreign keys (references) are defined for the customer table? 
 How does this affect the way in which we INSERT into the customer table?
 */
---The `customer` table has foreign keys: `store_id` referencing `store(store_id)` and `address_id` referencing `address(address_id)`.
---This means you must insert valid `store_id` and `address_id` values that already exist before adding a customer.
-
-
 
 /*
 3-We created a new table called customer_review. Drop this table. 
@@ -174,3 +167,18 @@ WHERE c.first_name = 'Matthew'
 AND c.last_name = 'Mahan'
 AND p.amount > 4
 AND r.return_date BETWEEN '2005-07-28' AND '2005-08-01';
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
