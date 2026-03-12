@@ -11,7 +11,7 @@ const pool = new Pool({
     database: process.env.DATABASE_DB,
 });
 
-pool.connect((err, client, release) => err ? console.log(err) : (console.log('Connected to the database'), release()))
+pool.connect((err, _client, release) => err ? console.log(err) : (console.log('Connected to the database'), release()))
     /*{
     if (err) {
         console.log(err);
