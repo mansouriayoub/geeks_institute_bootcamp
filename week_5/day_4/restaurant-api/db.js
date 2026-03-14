@@ -1,4 +1,4 @@
-import {Pool} from 'pg';
+import { Pool } from 'pg';
 import { config } from "dotenv";
 
 config();
@@ -8,14 +8,14 @@ const pool = new Pool({
     host: process.env.HOST_DB,
     database: process.env.DATABASE_DB,
     password: process.env.PASSWORD_DB,
-    port: 5432
+    port: Number(process.env.PORT_DB)
 })
 
 
-pool.connect().then(()=>{
+pool.connect().then(() => {
     console.log('Connected to the database')
-}).catch((err)=>{
-    console.log(err)
+}).catch((err) => {
+    console.error(err)
 })
 
 

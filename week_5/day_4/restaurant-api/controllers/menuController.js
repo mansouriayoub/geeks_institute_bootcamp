@@ -1,77 +1,96 @@
-import { getAllItems, getItemByName, createItem, updateItem,deleteItem } from "../models/menuModel.js";
+import { getAllItems, getItemByName, createItem, updateItem, deleteItem } from "../models/menuModel.js";
 
-const getMenu = async (_req,res)=>{
+const getMenu = async (_req, res) => {
     try {
-        
+
         const result = await getAllItems()
-        
-        res.status(200).json({message:"Items fetched successfully", result})
+
+        res.status(200).json({ message: "Items fetched successfully", result })
     } catch (error) {
         console.error(error);
-        res.status(500).json({message:"Internal server error"})
+        res.status(500).json({ message: "Internal server error" })
     }
 }
 
-const getMenuItem = async (req,res) => {
+const getMenuItem = async (req, res) => {
     try {
-        const {name} = req.params
-        const result = await getItemByName(name)
+        const { name } = req.params
 
-        if (result.length === 0) {
-            return res.status(404).json({message:"Item not found"});
-        }
+        if (!name) return res.status(400).json({ message: "Item name is required" });
 
-        res.status(200).json({message:"Item fetched successfully", result})
+        const result = await getItemByName(name.toLowerCase().trim())
+
+        if (!result) return res.status(404).json({ message: "Item not found" });
+
+        res.status(200).json({ message: "Item fetched successfully", result })
     } catch (error) {
         console.error(error);
-        res.status(500).json({message:"Internal server error"})
+        res.status(500).json({ message: "Internal server error" })
     }
 }
 
-const addMenuItem = async (req,res)=>{
+const addMenuItem = async (req, res) => {
     try {
 
         const { name, price } = req.body;
 
-        (!name && !price) ?? res.status(404).json({message:'name and price must be added', result})
+        if (!name || !price) {
+            return res.status(400).json({ message: 'name and price must be added' })
+        }
 
-        const result = await createItem(name,price)
-        res.status(201).json({message:'Item created successfully', result})
-        
+        const result = await createItem(name, price)
+
+        res.status(201).json({ message: 'Item created successfully', result })
     } catch (error) {
-        console.error(error);
-        res.status(500).json({message:"Internal server error"})
+        res.status(500).json({ message: "Internal server error" })
     }
 }
 
-const updateMenuItem = async (req,res)=>{
+const updateMenuItem = async (req, res) => {
     try {
-        const {id} = req.params;
-        const { name,price } = req.body;
+        const { id } = req.params;
+        const { name, price } = req.body;
 
-        (!id || !name || !price) ?? res.status(404).json({message:'all fields must be added', result})
+        const parsedId = parseInt(id) //convert id to number
 
-        const result = await updateItem(id, name, price)
+        if (
+            !id // check Missing or empty id
+            || isNaN(parsedId) // check Letters or symbols like abc, @#$
+            || parsedId <= 0 // check Zero or negative numbers like 0, -5
+            || !Number.isInteger(parsedId) // check Decimals like 1.5, 2.7
+        ) {
+            return res.status(400).json({ message: 'Invalid id format' });
+        }
 
-        res.status(200).json({message:'Item updated successfully', result})
+        if (!name || !price) return res.status(400).json({ message: 'all fields must be added' })
+
+        const result = await updateItem(parsedId, name, price)
+
+        res.status(200).json({ message: 'Item updated successfully', result })
     } catch (error) {
-        res.status(500).json({message:"Internal server error"})
+        res.status(500).json({ message: "Internal server error" })
     }
 }
 
-const deleteMenuItem = async (req,res)=>{
+const deleteMenuItem = async (req, res) => {
     try {
 
-        const {id} = req.params;
-        const result = await deleteItem(Number(id));
+        const { id } = req.params;
 
-        !id ?? console.log('item not found')
+        const parsedId = parseInt(id)
 
-        res.status(200).json({message:'Item deleted successfully', result})
-        
+        if (!id || isNaN(parsedId) || parsedId <= 0 || !Number.isInteger(parsedId)) {
+            return res.status(400).json({ message: 'Invalid id format' })
+        }
+
+        const result = await deleteItem(parsedId);
+
+        res.status(200).json({ message: 'Item deleted successfully', result })
+
     } catch (error) {
-        res.status(500).send({message:'Server error.', error});
+        console.log(error);
+        res.status(500).send({ message: 'Internal server error' });
     }
 }
 
-export {getMenu, getMenuItem, addMenuItem, updateMenuItem, deleteMenuItem};
+export { getMenu, getMenuItem, addMenuItem, updateMenuItem, deleteMenuItem };
