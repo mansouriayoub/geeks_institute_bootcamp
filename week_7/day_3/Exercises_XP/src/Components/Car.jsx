@@ -7,7 +7,7 @@ const Car =({model})=>{
     return(
         <>
         <header>This car is <span style={{color:color}}>{color}</span> {model}.</header>
-        <Garage size />
+        <Garage size={size} />
         </>
     )
 }
