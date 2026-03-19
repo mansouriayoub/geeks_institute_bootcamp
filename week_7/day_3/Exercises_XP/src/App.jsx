@@ -6,9 +6,7 @@ function App() {
 
   return (
     <>
-    {/* <h1> */}
      <Car model={carinfo.model} />
-    {/* </h1> */}
     </>
   )
 }
