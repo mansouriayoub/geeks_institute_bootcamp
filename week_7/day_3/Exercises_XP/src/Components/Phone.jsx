@@ -2,19 +2,24 @@ import { useState } from "react"
 
 const Phone =()=>{
 
-const [brand,setBrand] = useState('Samsung')
-const [model,setModel] = useState('Galaxy S20')
-const [color,setColor] = useState('black')
-const [year,setYear] = useState(2020)
+const [phone, setPhone] = useState({
+    brand: 'Samsung',
+    model: 'Galaxy S20',
+    color: 'black',
+    year: 2020
+})
 
-const changeColor =()=>{
-    setColor('blue')
+const changeColor = () => {
+    setPhone(prevPhone => ({
+        ...prevPhone,
+        color: 'blue'
+    }));
 }
 
 return (
     <>
-        <h1>My phone is a {brand}</h1>
-        <p>It is a {color} {model} from {year}</p>
+        <h1>My phone is a {phone.brand}</h1>
+        <p>It is a {phone.color} {phone.model} from {phone.year}</p>
         <button onClick={changeColor}>Change color</button>
     </>
 )
