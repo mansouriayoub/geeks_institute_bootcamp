@@ -4,7 +4,8 @@ const Forms =()=>{
     const [user, setUser] = useState({
         name: '',
         age: null,
-        errormessage: ''
+        errormessage: '',
+        message: "This is the initial content"
     })
 
     const handleChange = (e) => {
@@ -13,7 +14,7 @@ const Forms =()=>{
         setUser(prevUser => ({
             ...prevUser,
             [name]: value,
-            errormessage: name === 'age' && value && isNaN(value) ? 'Your age must be a number' : ''
+            errormessage: name === 'age' && value && isNaN(value) ? 'Your age must be a number' : '',
         }));
     
     }
@@ -36,6 +37,7 @@ const Forms =()=>{
             <label htmlFor="age">Enter your age</label>
             <input type="text" name="age" id="age" onChange={handleChange} />
             <span>{user.errormessage}</span>
+            <textarea name="message" id="message" cols="10" rows="5" value={user.message} onChange={handleChange}></textarea>
             <input type="submit" value="submit" />
         </form>
     )
