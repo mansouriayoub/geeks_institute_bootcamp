@@ -36,13 +36,13 @@ const Forms = () => {
   };
 
   return (
-    <form onSubmit={mySubmitHandler}>
+    <form className="user-form" onSubmit={mySubmitHandler}>
       {header}
       <label htmlFor="name">Enter your name</label>
       <input type="text" name="name" id="name" onChange={handleChange} />
       <label htmlFor="age">Enter your age</label>
       <input type="text" name="age" id="age" onChange={handleChange} />
-      <span>{user.errormessage}</span>
+      <span className="form-error">{user.errormessage}</span>
       <textarea
         name="message"
         id="message"
