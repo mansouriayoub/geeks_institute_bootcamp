@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
 const Clock = () => {
-    const [currentDate, setCurrentDate] = useState();
+    const now = new Date();
+    const localTime = now.toLocaleTimeString();
+    const [currentDate, setCurrentDate] = useState(localTime);
 
     const tick = () => {
-        const now = new Date();
-        const localTime = now.toLocaleTimeString();
-        setCurrentDate(localTime);
+        setCurrentDate(new Date().toLocaleTimeString());
     };
 
   useEffect(() => {
     const interval = setInterval(() => {
-      `It is ${tick()}`;
+      tick();
     }, 1000);
 
     return ()=> clearInterval(interval)
@@ -20,7 +20,7 @@ const Clock = () => {
   return (
     <>
       <h1>Hello world!</h1>
-      <p>{currentDate}</p>
+      <p>It is {currentDate}</p>
     </>
   );
 };
