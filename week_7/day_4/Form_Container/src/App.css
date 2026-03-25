@@ -1,0 +1,95 @@
+/* App-level styles */
+form {
+  width: 100%;
+  max-width: 440px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  padding: 16px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+}
+
+.enteredInfos {
+  width: 100%;
+  max-width: 440px;
+}
+
+.enteredInfos ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  box-shadow: 0 10px 24px rgba(17, 24, 39, 0.06);
+}
+
+.enteredInfos li {
+  padding: 10px 14px;
+  border-top: 1px solid #f1f5f9;
+}
+
+.enteredInfos li:first-child {
+  border-top: none;
+}
+
+.enteredInfos strong {
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+input.text,
+select {
+  width: 100%;
+}
+
+/* Text-like inputs */
+input[type="text"].text,
+input[type="number"].text,
+select {
+  padding: 10px 12px;
+  border-radius: 10px;
+  border: 1px solid #cbd5e1;
+  outline: none;
+  background: #f8fafc;
+}
+
+input[type="text"].text:focus,
+input[type="number"].text:focus,
+select:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.18);
+  background: #ffffff;
+}
+
+label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  user-select: none;
+}
+
+/* Checkbox / radio spacing */
+input.radio {
+  margin: 0;
+}
+
+/* Layout for the form fields */
+form > * {
+  margin: 8px 0;
+}
+
+button {
+  width: 100%;
+  padding: 11px 12px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #1d4ed8;
+}
