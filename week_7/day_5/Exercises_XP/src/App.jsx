@@ -1,9 +1,33 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 import BuggyCounter from "./components/BuggyCounter";
 import ErrorBoundary from "./components/ErrorBoundary";
 import FavoriteColor from "./components/FavoriteColor";
 
+// class Child extends React.Component {
+//   componentWillUnmount() {
+//     alert("Child component is being unmounted!");
+//   }
+
+//   render() {
+//     return <h1>Hello World!</h1>;
+//   }
+// }
+
+function Child() {
+  useEffect(() => {
+    return () => {
+      alert("The component named Header is about to be unmounted.");
+    };
+  }, []);
+
+  return <h1>Hello World!</h1>;
+}
+
 function App() {
+  const [show, setShow] = useState(true);
+  
+
   return (
     <>
       <div id="center">
@@ -69,6 +93,12 @@ function App() {
         <BuggyCounter />
 
         <FavoriteColor />
+        <div>
+
+            {show && <Child />}
+            <button onClick={() => setShow(false)}>Delete Header</button>
+
+        </div>
       </div>
     </>
   );
