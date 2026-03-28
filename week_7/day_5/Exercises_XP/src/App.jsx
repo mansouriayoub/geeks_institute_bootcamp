@@ -1,7 +1,7 @@
 import "./App.css";
 import BuggyCounter from "./components/BuggyCounter";
 import ErrorBoundary from "./components/ErrorBoundary";
-// import PostList from "./components/PostList";
+import FavoriteColor from "./components/FavoriteColor";
 
 function App() {
   return (
@@ -67,9 +67,8 @@ function App() {
           components are deleted.
         </p>
         <BuggyCounter />
-        {/* <section id="center">
-        <PostList />
-        </section> */}
+
+        <FavoriteColor />
       </div>
     </>
   );
