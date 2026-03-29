@@ -4,7 +4,7 @@ import Home from "./components/HomeScreen";
 import Profile from "./components/ProfileScreen";
 import Shop from "./components/ShopScreen";
 import ErrorBoundary from "./components/ErrorBoundary";
-import { Nav } from "react-bootstrap";
+import { Nav, Button } from "react-bootstrap";
 
 
 function App() {
@@ -19,7 +19,7 @@ function App() {
         body: JSON.stringify({
           key1: "myusername",
           email: "mymail@gmail.com",
-          name: "Isaac",
+          name: "Isa",
           lastname: "Doe",
           age: 27,
         }),
@@ -122,7 +122,9 @@ function App() {
         />
       </Routes>
       <div>
-        <button onClick={() => postData()}>Display in console</button>
+        <Button variant="primary" onClick={() => postData()}>
+          Webhook Button
+        </Button>
       </div>
     </>
   );
