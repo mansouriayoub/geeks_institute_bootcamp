@@ -1,11 +1,15 @@
 import PostList from "./PostList";
-import data from '../data.json'
+import data from "../data.json";
+import Examples from "./Examples";
 
 const HomeScreen = () => {
   return (
     <>
-      <h1>Home</h1>
-      <PostList data={data} />
+      <div className="container">
+        <h1>Home</h1>
+        <PostList data={data} />
+        <Examples />
+      </div>
     </>
   );
 };

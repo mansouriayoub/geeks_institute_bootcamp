@@ -5,8 +5,6 @@ import Profile from "./components/ProfileScreen";
 import Shop from "./components/ShopScreen";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Nav } from "react-bootstrap";
-// import PostList from "./components/PostList";
-// import data from './data.json'
 
 function App() {
   const location = useLocation()
@@ -98,8 +96,6 @@ function App() {
           }
         />
       </Routes>
-
-      {/* <PostList data={data} /> */}
     </>
   );
 }
