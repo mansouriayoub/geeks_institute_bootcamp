@@ -6,14 +6,39 @@ import Shop from "./components/ShopScreen";
 import ErrorBoundary from "./components/ErrorBoundary";
 import { Nav } from "react-bootstrap";
 
+
 function App() {
-  const location = useLocation()
+  const location = useLocation();
+
+  const postData = async () => {
+    const response = await fetch(
+      "https://webhook.site/14532d10-9046-4c4a-8ba7-70e8702e9102",
+      {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          key1: "myusername",
+          email: "mymail@gmail.com",
+          name: "Isaac",
+          lastname: "Doe",
+          age: 27,
+        }),
+      },
+    );
+    const data = await response.text();
+    console.log(data);
+  };
   return (
     <>
       <Nav
         variant="pills"
         className="justify-content-center mb-4"
-        style={{ fontSize: "1.1rem", background: "#f5f5f5", padding: "10px", borderRadius: "10px" }}
+        style={{
+          fontSize: "1.1rem",
+          background: "#f5f5f5",
+          padding: "10px",
+          borderRadius: "10px",
+        }}
       >
         <Nav.Item>
           <Nav.Link
@@ -25,7 +50,7 @@ function App() {
               color: isActive ? "#fff" : "#007bff",
               backgroundColor: isActive ? "#007bff" : "transparent",
               borderRadius: "5px",
-              padding: "8px 16px"
+              padding: "8px 16px",
             })}
           >
             Home
@@ -40,7 +65,7 @@ function App() {
               color: isActive ? "#fff" : "#007bff",
               backgroundColor: isActive ? "#007bff" : "transparent",
               borderRadius: "5px",
-              padding: "8px 16px"
+              padding: "8px 16px",
             })}
           >
             Profile
@@ -55,7 +80,7 @@ function App() {
               color: isActive ? "#fff" : "#007bff",
               backgroundColor: isActive ? "#007bff" : "transparent",
               borderRadius: "5px",
-              padding: "8px 16px"
+              padding: "8px 16px",
             })}
           >
             Shop
@@ -96,6 +121,9 @@ function App() {
           }
         />
       </Routes>
+      <div>
+        <button onClick={() => postData()}>Display in console</button>
+      </div>
     </>
   );
 }
