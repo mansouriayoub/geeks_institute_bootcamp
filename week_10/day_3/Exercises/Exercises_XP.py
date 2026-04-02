@@ -105,3 +105,9 @@ brand.update(more_on_zara)
 #13. Print the value of the key number_stores. What just happened ?
 print(brand["number_stores"])
 # The value of 'number_stores' is now 10000 because the update() method overwritten the previous value in brand with the value from more_on_zara.
+
+# 🌟 Exercise 4 : Some Geography
+def describe_city(city, country='morocco'):
+	print(f"{city} is in {country}")
+
+describe_city('casa')
