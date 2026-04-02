@@ -71,12 +71,15 @@ brand = {
 brand["number_stores"]=2
 
 #3. Use the key [type_of_clothes] to print a sentence that explains who Zaras clients are.
-print(f"Zara's types of clients are {range(brand["types__clothes"])}.")
+print(f"Zara's types of clients are {brand['type_of_clothes']}.")
+clothes = brand['type_of_clothes']
+sentence = ', '.join(clothes)
+print(f"Zara's types of clients are {sentence}")
 #4. Add a key called country_creation with a value of Spain.
 brand["country_creation"]="Spain"
 #5. Check if the key international_competitors is in the dictionary. If it is, add the store Desigual.
-if brand["international_competitors"] in brand:
-	brand["international_competitors"] = "Desigual"
+if "international_competitors" in brand:
+	brand["international_competitors"].append("Desigual")
 
 #6. Delete the information about the date of creation.
 del brand["creation_date"]
@@ -94,7 +97,7 @@ print(brand.keys())
 - number_stores: 10 000
 """
 more_on_zara = {
-	"creation_data": 1975,
+	"creation_date": 1975,
 	"number_stores": 10000
 }
 #12. Use a method to add the information from the dictionary more_on_zara to the dictionary brand.
