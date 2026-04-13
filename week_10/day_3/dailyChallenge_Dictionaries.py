@@ -11,6 +11,4 @@ for indx, letter in enumerate(word):
 print(letter_indexes)
 
 # Example outputs:
-# Input: dodo   -> {'d': [0, 2], 'o': [1, 3]}
-# Input: froggy -> {'f': [0], 'r': [1], 'o': [2], 'g': [3, 4], 'y': [5]}
-# Input: grapes -> {'g': [0], 'r': [1], 'a': [2], 'p': [3], 'e': [4], 's': [5]}
+# Input: amine -> {'a': [0], 'm': [1], 'i': [2], 'n': [3], 'e': [4]}
