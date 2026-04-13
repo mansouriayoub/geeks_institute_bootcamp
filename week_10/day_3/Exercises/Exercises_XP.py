@@ -309,3 +309,67 @@ def main():
         print("It's hot! Remember to drink water and stay cool.")
 
 main()
+
+#🌟 Exercise 8 : Star Wars Quiz
+data = [
+    {
+        "question": "What is Baby Yoda's real name?",
+        "answer": "Grogu"
+    },
+    {
+        "question": "Where did Obi-Wan take Luke after his birth?",
+        "answer": "Tatooine"
+    },
+    {
+        "question": "What year did the first Star Wars movie come out?",
+        "answer": "1977"
+    },
+    {
+        "question": "Who built C-3PO?",
+        "answer": "Anakin Skywalker"
+    },
+    {
+        "question": "Anakin Skywalker grew up to be who?",
+        "answer": "Darth Vader"
+    },
+    {
+        "question": "What species is Chewbacca?",
+        "answer": "Wookiee"
+    }
+]
+"""
+Create a function that asks the questions to the user, and check his answers. Track the number of correct, incorrect answers. 
+Create a list of wrong_answers
+Create a function that informs the user of his number of correct/incorrect answers.
+
+Bonus : display to the user the questions he answered wrong, his answer, and the correct answer.
+If he had more then 3 wrong answers, ask him to play again.
+"""
+wrong_answers = []
+
+def ask_questions(data):
+    correct_count = 0
+    incorrect_count = 0
+    wrong_answers.clear()
+    for q in data:
+        print(q["question"])
+        user_answer = input("Your answer: ").strip()
+        if user_answer.lower() == q["answer"].lower():
+            correct_count += 1
+        else:
+            incorrect_count += 1
+            wrong_answers.append({
+                "question": q["question"],
+                "your_answer": user_answer,
+                "correct_answer": q["answer"]
+            })
+    return correct_count, incorrect_count
+
+def show_results(correct_count, incorrect_count):
+    print(f"You got {correct_count} correct answers and {incorrect_count} incorrect answers.")
+    if wrong_answers:
+        print("\nHere are the questions you missed:")
+        for wa in wrong_answers:
+            print(f"Q: {wa['question']}")
+            print(f"Your answer: {wa['your_answer']}")
+            print(f"Correct answer: {wa['correct_answer']}\n")
