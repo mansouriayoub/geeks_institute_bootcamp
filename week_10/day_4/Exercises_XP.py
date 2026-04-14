@@ -48,3 +48,14 @@ if davids_dog.height < sarahs_dog.height:
 else:
     print(f"The name of the bigger dog is {davids_dog.name}")
 
+# 🌟 Exercise 3 : Who’s the song producer?
+class Song():
+    def __init__(self, lyrics = []):
+        self.lyrics = lyrics
+    
+    def sing_me_a_song(self):
+        for el in self.lyrics:
+            print(f"{el}")
+
+stairway = Song(["There’s a lady who's sure","all that glitters is gold", "and she’s buying a stairway to heaven"])
+stairway.sing_me_a_song()
