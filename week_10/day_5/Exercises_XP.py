@@ -68,3 +68,43 @@ print(dog2.fight(dog3))
 
 #🌟 Exercise 3 : Dogs Domesticated => Exercise_3.py
 
+#Exercise 4 : Family
+class Family():
+    def __init__(self, members, last_name):
+        self.members = members  # expects a list of dicts
+        self.last_name = last_name
+
+    def born(self, **kwargs):
+        self.members.append(kwargs)
+        print(f"Congratulations to the {self.last_name} family on the birth of {kwargs.get('name', 'a new child')}!")
+    
+    def is_18(self, name):
+        for member in self.members:
+            if member.get('name') == name:
+                return member.get('age', 0) > 18
+        return False
+    
+    def family_presentation(self):
+        print(f"Family last name: {self.last_name}")
+        print("Members:")
+        for member in self.members:
+            info = ', '.join(f"{key}: {value}" for key, value in member.items())
+            print(f" - {info}")
+
+members = [
+    {'name': 'John', 'age': 35, 'gender': 'Male', 'is_child': False},
+    {'name': 'Jane', 'age': 34, 'gender': 'Female', 'is_child': False},
+    {'name': 'Alice', 'age': 5, 'gender': 'Female', 'is_child': True}
+]
+
+my_family = Family(members, "Smith")
+
+my_family.family_presentation()
+
+my_family.born(name="Bob", age=0, gender="Male", is_child=True)
+
+print(my_family.is_18("John"))  
+print(my_family.is_18("Alice")) 
+print(my_family.is_18("Bob"))   
+
+my_family.family_presentation()
