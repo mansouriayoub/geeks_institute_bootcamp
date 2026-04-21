@@ -108,3 +108,67 @@ print(my_family.is_18("Alice"))
 print(my_family.is_18("Bob"))   
 
 my_family.family_presentation()
+
+#Exercise 5 : TheIncredibles Family
+class Family:
+    def __init__(self, last_name, members=None):
+        self.last_name = last_name
+        self.members = members if members else []
+
+    def born(self, **kwargs):
+        self.members.append(kwargs)
+        print(f"Congratulations to the {self.last_name} family on the birth of {kwargs.get('name', 'a new member')}!")
+
+    def is_18(self, name):
+        for member in self.members:
+            if member.get("name") == name:
+                return member.get("age", 0) >= 18
+        return False
+
+    def family_presentation(self):
+        print(f"\nThe {self.last_name} Family:")
+        for member in self.members:
+            print(member)
+
+
+# Inheriting from Family
+class TheIncredibles(Family):
+    def use_power(self, name):
+        for member in self.members:
+            if member.get("name") == name:
+                if member.get("age", 0) < 18:
+                    raise Exception(f"{name} is not over 18 years old!")
+                print(f"{member.get('incredible_name')} uses power: {member.get('power')}")
+                return
+        print(f"{name} not found in the family.")
+
+    def incredible_presentation(self):
+        print("\nHere is our powerful family 💥")
+        super().family_presentation()
+
+
+incredibles = TheIncredibles(
+    "Incredibles",
+    [
+        {'name': 'Michael', 'age': 35, 'gender': 'Male', 'is_child': False, 'power': 'fly', 'incredible_name': 'MikeFly'},
+        {'name': 'Sarah', 'age': 32, 'gender': 'Female', 'is_child': False, 'power': 'read minds', 'incredible_name': 'SuperWoman'}
+    ]
+)
+
+incredibles.incredible_presentation()
+
+incredibles.born(
+    name="Baby Jack",
+    age=0,
+    gender="Male",
+    is_child=True,
+    power="Unknown Power",
+    incredible_name="Jack-Jack"
+)
+
+incredibles.incredible_presentation()
+
+incredibles.use_power("Michael")
+
+
+
