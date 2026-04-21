@@ -26,16 +26,8 @@ class Bengal(Cat):
 class Chartreux(Cat):
     def sing(self, sounds):
         return f'{sounds}'
-'''
-Create another cat breed named Siamese which inherits from the Cat class.
 
-Create a list called all_cats, which holds three cat instances : one Bengal, one Chartreux and one Siamese.
 
-Those three cats are Sara’s pets. 
-Create a variable called sara_pets which value is an instance of the Pet class, 
-and pass the variable all_cats to the new instance.
-Take all the cats for a walk, use the walk method.
-'''
 class Siamese(Cat):
     def sing(self, sounds):
         return f'{sounds}'
@@ -45,17 +37,7 @@ sara_pets = Pets(all_cats)
 sara_pets.walk()
 
 #🌟 Exercise 2 : Dogs
-'''
-Create a class called Dog with the following attributes name, age, weight.
-Implement the following methods in the Dog class:
 
-bark: returns a string which states: “<dog_name>is barking”.
-
-run_speed: returns the dogs running speed (weight/age*10).
-fight : takes a parameter which value is another Dog instance, called other_dog. This method returns a string stating which dog won the fight. 
-The winner should be the dog with the higher run_speed x weight.
-Create 3 dogs and run them through your class.
-'''
 class Dog():
     def __init__(self, name, age, weight):
         self.name = name
@@ -66,7 +48,7 @@ class Dog():
         return f"{self.name} is barking"
     
     def run_speed(self):
-        return f"{self.name} is running at {self.weight / self.age * 10}"
+        return self.weight / self.age * 10
     
     def fight(self, other_dog):
         if self.run_speed() > other_dog.run_speed():
@@ -83,3 +65,6 @@ dog3 = Dog("Buddy", 7, 120)
 print(dog1.fight(dog2))
 print(dog1.fight(dog3))
 print(dog2.fight(dog3))
+
+#🌟 Exercise 3 : Dogs Domesticated => Exercise_3.py
+
