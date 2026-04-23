@@ -41,3 +41,5 @@ class Pagination:
 alphabetList = list("abcdefghijklmnopqrstuvwxyz")
 p = Pagination(alphabetList, 4)
 
+print(p.get_visible_items())
+
