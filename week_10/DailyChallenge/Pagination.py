@@ -43,3 +43,5 @@ p = Pagination(alphabetList, 4)
 
 print(p.get_visible_items())
 
+p.next_page()
+print(p.get_visible_items())
