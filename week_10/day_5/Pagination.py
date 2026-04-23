@@ -38,19 +38,26 @@ class Pagination:
         # Step 5: Display current page items line by line
         return "\n".join(str(item) for item in self.get_visible_items())
 
+
 alphabetList = list("abcdefghijklmnopqrstuvwxyz")
 p = Pagination(alphabetList, 4)
 
 print(p.get_visible_items())
+# ['a', 'b', 'c', 'd']
 
 p.next_page()
 print(p.get_visible_items())
+# ['e', 'f', 'g', 'h']
 
 p.last_page()
 print(p.get_visible_items())
+# ['y', 'z']
 
 p.go_to_page(10)
 print(p.current_idx + 1)
+# Output: 7
 
 p.go_to_page(0)
+# Raises ValueError
+
 
